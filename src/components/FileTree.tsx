@@ -6,6 +6,7 @@ import Directory from "./Direcrory";
 import CreateModal from "./CreateModal";
 
 import { addFileNode, addFolderNode } from "../store/slices/fileSystemSlice";
+import languages from "../contants/languages";
 
 import FileType from "../interfaces/FileType";
 import FileSystemNode from "../interfaces/FileSystemNode";
@@ -49,11 +50,18 @@ const FileTree = () => {
 		parentId: string;
 	}) => {
 		if (data.type === "file") {
+			const language_data = languages.find((v) => v.code === data.language);
+
+			const ext = language_data?.ext;
+
+			const newFilename = data.fileName.trim() + ext;
+
 			dispatch(
 				addFileNode({
 					parentId: data.parentId,
-					name: data.fileName,
+					name: newFilename,
 					type: "file",
+					lang_code: data.language,
 				})
 			);
 		} else {

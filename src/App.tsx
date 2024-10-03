@@ -1,6 +1,4 @@
 import React from "react";
-
-import CreateModal from "./components/CreateModal";
 import FileTree from "./components/FileTree";
 
 const App: React.FC = () => {
@@ -11,7 +9,7 @@ const App: React.FC = () => {
 				<FileTree />
 			</div>
 
-			{/* Code Editor Area */}
+			{/* Code Editor */}
 			<div className="flex-1 bg-gray-800 text-white p-4">
 				<pre className="mt-4 text-green-400 font-mono text-sm">
 					{`const uuidv4 = require('uuid/v4');`}

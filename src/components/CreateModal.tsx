@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import languages from "../contants/languages";
 
 interface ModalProps {
 	isOpen: boolean;
@@ -62,9 +63,9 @@ const CreateModal: React.FC<ModalProps> = ({
 							className="text-black border border-gray-300 p-2 rounded w-full"
 							required>
 							<option value="">Select a language</option>
-							<option value="javascript">JavaScript</option>
-							<option value="typescript">TypeScript</option>
-							{/* Add more languages as needed */}
+							{languages.map((e) => (
+								<option value={e.code}>{e.name}</option>
+							))}
 						</select>
 					</div>
 				) : null}
